@@ -1,6 +1,7 @@
 const navigation=document.getElementById('navbar__list');
 const sections=document.querySelectorAll('section');
 let nav='';
+//build the nav bar menu
 const navbuilder=()=>{
 	sections.forEach(section=>{
 		const sectionID=section.id;
@@ -12,19 +13,23 @@ const navbuilder=()=>{
 	
 };
 navbuilder();
+//get the position of the given section
 const sectionPosition=(section)=>{
 	return Math.floor(section.getBoundingClientRect().top);
 	
 };
+//remove active class
 const removeActive=(section)=>{
 	section.classList.remove('your-active-class');
 };
+//add active class to the current active section
  const addActive=(condition,section)=>{
 	 if(condition){
 		 section.classList.add('your-active-class');
 	 };
 	 
  };
+ //check which section is active
  const activeSection=()=>{
 	 sections.forEach(section=>{
 		  const mysection=sectionPosition(section);
@@ -36,7 +41,24 @@ const removeActive=(section)=>{
 	 
 	
  };
- window.addEventListener('scroll', activeSection); 
+ window.addEventListener('scroll', activeSection);
+//scroll into spacific section when click on it in the nav bar 
+ const scroll=()=>{
+	 const LINKS =document.querySelectorAll('.list');
+	 LINKS.forEach(LINK=>{
+		 LINK.addEventListener('click',()=>{
+			 for(i=0;i<sections;i++){
+				 sections[i].addEventListener("click",sectionScroll(LINK));
+			 }
+			 
+			 
+		 });
+	 });
+	 
+	 
+ };
+ scroll();
+ 
  
  
  
