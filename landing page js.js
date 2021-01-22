@@ -42,25 +42,7 @@ const removeActive=(section)=>{
 	
  };
  window.addEventListener('scroll', activeSection);
-//scroll into spacific section when click on it in the nav bar 
- const scroll=()=>{
-	 const LINKS =document.querySelectorAll('.list');
-	 LINKS.forEach(LINK=>{
-		 LINK.addEventListener('click',()=>{
-			 for(i=0;i<sections;i++){
-				 sections[i].addEventListener("click",sectionScroll(LINK));
-			 }
-			 
-			 
-		 });
-	 });
-	 
-	 
- };
- scroll();
- 
- 
- 
+
  
  
  
